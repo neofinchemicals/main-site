@@ -1,1 +1,5 @@
+# Single page app (SPA) fallback
 /* /index.html 200
+
+# Redirect default Netlify subdomain to primary domain
+https://neofinchemicals.netlify.app/* https://neofinchemicals.com/:splat 301!

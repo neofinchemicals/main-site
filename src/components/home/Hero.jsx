@@ -122,7 +122,7 @@ const Hero = () => {
           Welcome to Neofin Chemicals
         </h1>
         <p
-          className="mt-6 text-2xl md:text-3xl text-green-300"
+          className="mt-6 text-2xl md:text-3xl text-blue-300"
           style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.7)" }}
         >
           Innovative Chemical Solutions for a Sustainable Future

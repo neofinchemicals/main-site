@@ -10,14 +10,12 @@ import WhatsAppButton from "../components/common/WhatsAppButton";
 const Home = () => {
   return (
     <div className="relative">
-      <Navbar />
       <main className="mt-16">
         <Hero />
         <CompanyProfile />
         <MissionVision />
         <ProductCategories />
       </main>
-      <Footer />
       <WhatsAppButton />
     </div>
   );

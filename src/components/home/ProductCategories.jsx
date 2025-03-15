@@ -3,28 +3,42 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const ProductCategories = () => {
-  // Sample product data (replace with your actual data import)
+  // Updated product data with revised descriptions
   const productData = [
     {
-      name: "Industrial Chemicals",
+      name: "Fine Chemicals",
       description:
-        "High-quality industrial chemicals for manufacturing, processing, and various applications across multiple industries.",
+        "Our range of fine chemicals is tailored for precision manufacturing and specialized industrial applications, ensuring the highest quality and performance.",
       image: "/path/to/industrial.jpg",
       path: "/products/industrial",
     },
     {
       name: "Pharmaceutical Ingredients",
       description:
-        "Pharmaceutical-grade chemical ingredients meeting strict quality and purity standards for medical applications.",
+        "Premium pharmaceutical ingredients that meet strict quality and purity standards, essential for safe and effective medical formulations.",
       image: "/path/to/pharma.jpg",
       path: "/products/pharmaceutical",
     },
     {
       name: "Agricultural Solutions",
       description:
-        "Effective and sustainable agricultural chemical solutions to enhance crop yield and protection.",
+        "Innovative and sustainable agricultural solutions designed to boost crop yield, protect plants, and promote eco-friendly farming practices.",
       image: "/path/to/agri.jpg",
       path: "/products/agricultural",
+    },
+    {
+      name: "Intermediates",
+      description:
+        "High-grade chemical intermediates that serve as essential building blocks in numerous industrial and pharmaceutical processes.",
+      image: "/path/to/intermediates.jpg",
+      path: "/products/intermediates",
+    },
+    {
+      name: "Pesticides",
+      description:
+        "Advanced pesticide formulations that offer effective pest control while prioritizing environmental safety and sustainability.",
+      image: "/path/to/pesticides.jpg",
+      path: "/products/pesticides",
     },
   ];
 
@@ -77,11 +91,11 @@ const ProductCategories = () => {
         </div>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center md:justify-items-stretch">
           {productData.map((product, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 w-full"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 * index, duration: 0.6 }}
@@ -89,7 +103,7 @@ const ProductCategories = () => {
               whileHover={{ y: -5 }}
             >
               <div className="h-48 bg-blue-100 relative">
-                {/* Replace with actual image when available */}
+                {/* Use product.image when available */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-blue-700/60 flex items-center justify-center">
                   <h4 className="text-2xl font-bold text-white px-4 text-center">
                     {product.name}

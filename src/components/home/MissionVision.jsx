@@ -54,11 +54,10 @@ const MissionVision = () => {
               Our Mission
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              To deliver innovative, sustainable chemical solutions that exceed
-              industry standards while ensuring a cleaner, greener future. We
-              strive to develop products that address complex challenges across
-              various sectors with quality and environmental responsibility at
-              the forefront.
+              Our mission is to fulfill the industry needs by developing and
+              supplying the products by keeping the environmental, social
+              responsibility at the forefront with the highest standard of
+              Governance.
             </p>
           </motion.div>
           <motion.div
@@ -73,11 +72,9 @@ const MissionVision = () => {
               Our Vision
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              To be recognized globally as a leader in chemical innovation and
-              sustainability, setting benchmarks for quality and environmental
-              responsibility. We aim to be the preferred partner for businesses
-              seeking effective, eco-friendly chemical solutions backed by
-              excellence and expertise.
+              Our Vision is to be recognized as a one stop shop for all your
+              product needs within ESG framework (Environmental, social and
+              governance ).
             </p>
           </motion.div>
         </div>

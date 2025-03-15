@@ -23,7 +23,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="col-span-1 md:col-span-1">
+          <div className="col-span-1">
             <div className="flex items-center mb-4">
               <img
                 src={logo}
@@ -131,7 +131,7 @@ const Footer = () => {
                   to="/products/industrial"
                   className="text-blue-100 hover:text-green-400 transition-colors duration-300 flex items-center"
                 >
-                  <span className="mr-2">›</span> Industrial Chemicals
+                  <span className="mr-2">›</span> Fine Chemicals
                 </Link>
               </li>
               <li>
@@ -150,6 +150,22 @@ const Footer = () => {
                   <span className="mr-2">›</span> Agricultural
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/products/intermediates"
+                  className="text-blue-100 hover:text-green-400 transition-colors duration-300 flex items-center"
+                >
+                  <span className="mr-2">›</span> Intermediates
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/products/pesticides"
+                  className="text-blue-100 hover:text-green-400 transition-colors duration-300 flex items-center"
+                >
+                  <span className="mr-2">›</span> Pesticides
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -159,31 +175,34 @@ const Footer = () => {
               Contact Us
               <span className="absolute bottom-0 left-0 w-12 h-1 bg-green-500 mt-1"></span>
             </h4>
-            <address className="not-italic">
-              <div className="flex items-start mb-3">
-                <FaMapMarkerAlt className="text-green-400 mt-1 mr-3" />
-                <span className="text-blue-100">
-                  123 Chemical Street, Industrial Area
-                  <br />
-                  City, Country, 12345
-                </span>
+            <address className="not-italic text-blue-100 text-sm space-y-4">
+              <div>
+                <p className="font-bold">Office Address:</p>
+                <div className="flex items-start">
+                  <FaMapMarkerAlt className="text-green-400 mt-1 mr-2" />
+                  <span>
+                    B-102, Rajmoti-1, Chharwada Road, Vapi, Dist- Valsad,
+                    Gujarat - 396191
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center mb-3">
-                <FaPhone className="text-green-400 mr-3" />
-                <a
-                  href="tel:+1234567890"
-                  className="text-blue-100 hover:text-green-400 transition-colors duration-300"
-                >
-                  +123 456 7890
-                </a>
+              <div>
+                <p className="font-bold">Unit Address:</p>
+                <div className="flex items-start">
+                  <FaMapMarkerAlt className="text-green-400 mt-1 mr-2" />
+                  <span>
+                    F-332, Road No. 2, Gate No.1, Hoziwala Industrial Estate,
+                    Sachin, Surat, Gujarat - 394230
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center mb-3">
-                <FaEnvelope className="text-green-400 mr-3" />
+              <div className="flex items-center">
+                <FaPhone className="text-green-400 mr-2" />
                 <a
-                  href="mailto:info@neofinchemicals.com"
-                  className="text-blue-100 hover:text-green-400 transition-colors duration-300"
+                  href="tel:+919974285868"
+                  className="hover:text-green-400 transition-colors duration-300"
                 >
-                  info@neofinchemicals.com
+                  +91-9974285868
                 </a>
               </div>
             </address>

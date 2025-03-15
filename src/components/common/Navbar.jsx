@@ -37,9 +37,17 @@ const Navbar = () => {
       label: "Products",
       dropdown: true,
       subItems: [
-        { path: "/products", label: "Industrial Chemicals" },
-        { path: "/products", label: "Pharmaceutical" },
-        { path: "/products", label: "Agricultural" },
+        { path: "/products/fine-chemicals", label: "Fine Chemicals" },
+        {
+          path: "/products/pharmaceutical-ingredients",
+          label: "Pharmaceutical Ingredients",
+        },
+        {
+          path: "/products/agricultural-solutions",
+          label: "Agricultural Solutions",
+        },
+        { path: "/products/intermediates", label: "Intermediates" },
+        { path: "/products/pesticides", label: "Pesticides" },
       ],
     },
     { path: "/inquiry", label: "Inquiry" },
@@ -198,7 +206,7 @@ const Navbar = () => {
                     alt="Neofin Chemicals Logo"
                     className="h-10"
                   />
-                  {/* Here too, we remove text */}
+                  {/* Remove text on mobile */}
                 </Link>
                 <button
                   onClick={() => setIsOpen(false)}

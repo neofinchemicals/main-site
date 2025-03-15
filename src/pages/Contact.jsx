@@ -71,8 +71,8 @@ const Contact = () => {
                 <div className="flex items-start">
                   <FaMapMarkerAlt className="text-green-500 text-2xl mr-3 mt-1" />
                   <span className="text-gray-700">
-                    B-102, Rajmoti-1, Chharwada Road, Vapi, Dist- Valsad,
-                    Gujarat - 396191
+                    B-102, Rajmoti-1, Chharwada Road, Vapi,<br></br>
+                    Dist- Valsad, Gujarat - 396191
                   </span>
                 </div>
               </div>

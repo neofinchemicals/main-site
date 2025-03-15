@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Contact from "./pages/Contact";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
+import Products from "./pages/Products";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/products" element={<Products />} />
         {/* Future routes: Products, Inquiry, Contact */}
       </Routes>
 

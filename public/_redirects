@@ -2,4 +2,4 @@
 /* /index.html 200
 
 # Redirect default Netlify subdomain to primary domain
-https://neofinchemicals.netlify.app/* https://neofinchemicals.com/:splat 301!
+https://neofinchemicals.com/* https://neofinchemicals.netlify.app/:splat 200!

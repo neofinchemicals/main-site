@@ -37,17 +37,17 @@ const Navbar = () => {
       label: "Products",
       dropdown: true,
       subItems: [
-        { path: "/products/fine-chemicals", label: "Fine Chemicals" },
+        { path: "/products", label: "Fine Chemicals" },
         {
-          path: "/products/pharmaceutical-ingredients",
+          path: "/products",
           label: "Pharmaceutical Ingredients",
         },
         {
-          path: "/products/agricultural-solutions",
+          path: "/products",
           label: "Agricultural Solutions",
         },
-        { path: "/products/intermediates", label: "Intermediates" },
-        { path: "/products/pesticides", label: "Pesticides" },
+        { path: "/products", label: "Intermediates" },
+        { path: "/products", label: "Pesticides" },
       ],
     },
     { path: "/inquiry", label: "Inquiry" },

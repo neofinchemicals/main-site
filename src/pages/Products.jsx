@@ -4,7 +4,7 @@ import MoleculeBackground from "../components/products/MoleculeBackground";
 
 const Products = () => {
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gray-50">
+    <div className="min-h-screen relative overflow-hidden bg-gray-50 mt-16">
       {/* Full-page Molecule Background */}
       <MoleculeBackground />
       {/* Main Content over background */}

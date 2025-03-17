@@ -1,20 +1,25 @@
+// src/components/home/MissionVision.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import CanvasBackground from "./CanvasBackground";
 
 const MissionVision = () => {
   return (
     <motion.section
-      className="py-16 bg-sky-50"
+      className="relative py-16 bg-sky-50 overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-6xl mx-auto px-4">
+      {/* Canvas-based Animated Background */}
+      <CanvasBackground />
+      {/* Content Layer */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
           <motion.span
-            className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-2"
+            className="inline-block px-3 py-1 bg-green-100 text-blue-300 rounded-full text-sm font-medium mb-2"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -23,7 +28,7 @@ const MissionVision = () => {
             Our Commitment
           </motion.span>
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-blue-900 mb-2"
+            className="text-3xl md:text-4xl font-bold text-blue-100 mb-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -54,10 +59,9 @@ const MissionVision = () => {
               Our Mission
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              Our mission is to fulfill the industry needs by developing and
-              supplying the products by keeping the environmental, social
-              responsibility at the forefront with the highest standard of
-              Governance.
+              Our mission is to fulfill industry needs by developing and
+              supplying products while keeping environmental and social
+              responsibilities at the forefront of our operations.
             </p>
           </motion.div>
           <motion.div
@@ -72,9 +76,9 @@ const MissionVision = () => {
               Our Vision
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              Our Vision is to be recognized as a one stop shop for all your
-              product needs within ESG framework (Environmental, social and
-              governance ).
+              Our vision is to be recognized as your one‑stop shop for all
+              product needs within an ESG framework—delivering excellence,
+              sustainability, and innovation.
             </p>
           </motion.div>
         </div>

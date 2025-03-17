@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const Hero = () => {
+const CanvasBackground = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -20,7 +20,6 @@ const Hero = () => {
         radius: Math.random() * 4 + 2,
         vx: (Math.random() - 0.5) * 1,
         vy: (Math.random() - 0.5) * 1,
-        // Cycle through a set of colors for a consistent palette:
         color:
           i % 3 === 0
             ? "#28a745" // green
@@ -30,7 +29,7 @@ const Hero = () => {
       });
     }
 
-    // Randomly create connections between molecules
+    // Create random connections between molecules
     for (let i = 0; i < molecules.length; i++) {
       for (let j = i + 1; j < molecules.length; j++) {
         if (Math.random() > 0.85) {
@@ -47,7 +46,7 @@ const Hero = () => {
 
     function animate() {
       ctx.clearRect(0, 0, width, height);
-      // Background fill
+      // Fill background
       ctx.fillStyle = "#001f3f";
       ctx.fillRect(0, 0, width, height);
 
@@ -75,7 +74,7 @@ const Hero = () => {
         if (m.x < 0 || m.x > width) m.vx *= -1;
         if (m.y < 0 || m.y > height) m.vy *= -1;
 
-        // Draw main circle
+        // Draw circle
         ctx.beginPath();
         ctx.arc(m.x, m.y, m.radius, 0, Math.PI * 2);
         ctx.fillStyle = m.color;
@@ -100,50 +99,13 @@ const Hero = () => {
 
       requestAnimationFrame(animate);
     }
+
     animate();
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Scroll to the product category section
-  const handleScrollToProducts = () => {
-    const element = document.getElementById("productCategories");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  return (
-    <div className="relative h-screen overflow-hidden">
-      {/* Canvas Background */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-0" />
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black opacity-30 z-0"></div>
-      {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-        <h1
-          className="text-5xl md:text-7xl font-extrabold text-white"
-          style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.8)" }}
-        >
-          Welcome to Neofin Chemicals
-        </h1>
-        <p
-          className="mt-6 text-2xl md:text-3xl text-blue-300"
-          style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.7)" }}
-        >
-          Innovative Chemical Solutions for a Sustainable Future
-        </p>
-        <button
-          onClick={handleScrollToProducts}
-          className="mt-8 px-8 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition duration-300"
-        >
-          Discover Our Products
-        </button>
-      </div>
-    </div>
-  );
+  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
 };
 
-export default Hero;
+export default CanvasBackground;

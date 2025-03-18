@@ -1,7 +1,7 @@
+// src/pages/Contact.jsx
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
-import CanvasBackground from "../components/home/CanvasBackground"; // Adjust path if needed
 
 const Contact = () => {
   // Scroll to top on component mount
@@ -10,72 +10,57 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="min-h-screen relative overflow-hidden mt-16">
-      {/* Canvas-based animated background */}
-      <CanvasBackground />
-
-      {/* Main Content (z-10) */}
+    <div className="min-h-screen bg-white mt-16">
       <motion.section
-        className="pt-16 pb-16 relative z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        className="py-16"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <motion.div
-            className="text-center mb-14"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="text-center mb-12">
             <motion.span
               className="inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-3"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
             >
               Get in Touch
             </motion.span>
             <motion.h2
-              className="text-3xl md:text-5xl font-bold text-blue-100 mt-5 mb-4"
+              className="text-3xl md:text-5xl font-bold text-blue-900 mt-5 mb-4"
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              viewport={{ once: true }}
             >
               Contact Us
             </motion.h2>
             <motion.div
               className="w-20 h-1 bg-green-500 mx-auto mb-8"
               initial={{ width: 0 }}
-              whileInView={{ width: 80 }}
+              animate={{ width: 80 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              viewport={{ once: true }}
             />
             <motion.p
-              className="max-w-2xl mx-auto text-blue-300 mb-10 text-lg"
+              className="max-w-2xl mx-auto text-gray-600 mb-10 text-lg"
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              viewport={{ once: true }}
             >
               We would love to hear from you. Please contact us via phone,
               email, or visit our offices.
             </motion.p>
-          </motion.div>
+          </div>
 
-          {/* Content Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Map Card (Full width on mobile, 2/3 on desktop) */}
+          {/* Responsive Grid: Map and Information Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Map Card */}
             <motion.div
-              className="bg-white rounded-3xl shadow-xl overflow-hidden lg:col-span-2 order-2 lg:order-1"
+              className="bg-white rounded-3xl shadow-xl overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
             >
               <div className="h-96 md:h-[450px] w-full">
                 <iframe
@@ -91,91 +76,60 @@ const Contact = () => {
 
             {/* Contact Information Card */}
             <motion.div
-              className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-3xl shadow-xl order-1 lg:order-2"
+              className="bg-blue-50 p-8 rounded-3xl shadow-xl"
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold text-blue-900 mb-8 border-b border-blue-200 pb-4">
                 Our Offices
               </h3>
               <div className="space-y-8">
-                <motion.div
-                  className="group"
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <div>
                   <p className="font-bold text-blue-800 mb-2">
                     Office Address:
                   </p>
                   <div className="flex items-start">
-                    <div className="bg-green-500 p-2 rounded-lg mr-4 text-white">
-                      <FaMapMarkerAlt className="text-xl text-blue-700" />
-                    </div>
-                    <span className="text-gray-700 group-hover:text-blue-800 transition-colors duration-300">
-                      B-102, Rajmoti-1, Chharwada Road, Vapi,
-                      <br />
-                      Dist- Valsad, Gujarat - 396191
+                    <FaMapMarkerAlt className="text-green-500 text-2xl mr-3 mt-1" />
+                    <span className="text-gray-700">
+                      B-102, Rajmoti-1, Chharwada Road, Vapi, <br></br>Dist- Valsad,
+                      Gujarat - 396191
                     </span>
                   </div>
-                </motion.div>
-
-                <motion.div
-                  className="group"
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                </div>
+                <div>
                   <p className="font-bold text-blue-800 mb-2">Unit Address:</p>
                   <div className="flex items-start">
-                    <div className="bg-green-500 p-2 rounded-lg mr-4 text-white">
-                      <FaMapMarkerAlt className="text-xl text-blue-700" />
-                    </div>
-                    <span className="text-gray-700 group-hover:text-blue-800 transition-colors duration-300">
+                    <FaMapMarkerAlt className="text-green-500 text-2xl mr-3 mt-1" />
+                    <span className="text-gray-700">
                       F-332, Road No. 2, Gate No.1, Hoziwala Industrial Estate,
-                      Sachin, Surat, Gujarat - 394230
+                      <br></br>Sachin, Surat, Gujarat - 394230
                     </span>
                   </div>
-                </motion.div>
-
-                <motion.div
-                  className="group"
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <div className="flex items-center">
-                    <div className="bg-green-500 p-2 rounded-lg mr-4 text-blue-700">
-                      <FaPhoneAlt className="text-xl" />
-                    </div>
-                    <a
-                      href="tel:+919974285868"
-                      className="text-gray-700 group-hover:text-green-600 transition-colors duration-300 font-medium"
-                    >
-                      +91-9974285868
-                    </a>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="group"
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <div className="flex items-center">
-                    <div className="bg-green-500 p-2 rounded-lg mr-4 text-white">
-                      <FaEnvelope className="text-xl text-blue-700" />
-                    </div>
-                    <a
-                      href="mailto:info@neofinchemicals.com"
-                      className="text-gray-700 group-hover:text-green-600 transition-colors duration-300 font-medium"
-                    >
-                      info@neofinchemicals.com
-                    </a>
-                  </div>
-                </motion.div>
+                </div>
+                <div className="flex items-center">
+                  <FaPhoneAlt className="text-green-500 text-xl mr-3" />
+                  <a
+                    href="tel:+919974285868"
+                    className="text-gray-700 hover:text-green-500 transition-colors duration-300 font-medium"
+                  >
+                    +91-9974285868
+                  </a>
+                </div>
+                <div className="flex items-center">
+                  <FaEnvelope className="text-green-500 text-xl mr-3" />
+                  <a
+                    href="mailto:info@neofinchemicals.com"
+                    className="text-gray-700 hover:text-green-500 transition-colors duration-300 font-medium"
+                  >
+                    info@neofinchemicals.com
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>
+
+          {/* Divider and Copyright */}
         </div>
       </motion.section>
     </div>

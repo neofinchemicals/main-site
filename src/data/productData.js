@@ -49,6 +49,7 @@ const productData = [
     category: "Other Chemicals & Fine Chemicals",
     products: [], // Future data
   },
+  
 ];
 
 export default productData;

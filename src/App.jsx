@@ -7,19 +7,20 @@ import Contact from "./pages/Contact";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import Products from "./pages/Products";
+import Inquiry from "./pages/Inquiry";
 
 const App = () => {
   return (
     <>
-    <Navbar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Products />} />
-        {/* Future routes: Products, Inquiry, Contact */}
+        <Route path="/inquiry" element={<Inquiry />} />
       </Routes>
-
       <Footer />
+      
       <ToastContainer
         position="top-right"
         autoClose={3000}

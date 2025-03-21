@@ -65,7 +65,7 @@ const Contact = () => {
               <div className="h-96 md:h-[450px] w-full">
                 <iframe
                   title="Office Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.539423178548!2d72.91677561486963!3d19.19523218708417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b65d9ddc6d1b%3A0x8c5a50cd48e6a2e!2sSachin%2C%20Surat%2C%20Gujarat%20394230!5e0!3m2!1sen!2sin!4v1680309204170!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.291627123934!2d72.914634!3d20.372956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0bdbdf1234567%3A0x123456789abcdef!2sB-102%2C%20Rajmoti-1%2C%20Chharwada%20Road%2C%20Vapi%2C%20Dist-%20Valsad%2C%20Gujarat%20-%20396191!5e0!3m2!1sen!2sin!4v1711023456789!5m2!1sen!2sin"
                   className="w-full h-full"
                   style={{ border: 0 }}
                   allowFullScreen=""
@@ -92,8 +92,8 @@ const Contact = () => {
                   <div className="flex items-start">
                     <FaMapMarkerAlt className="text-green-500 text-2xl mr-3 mt-1" />
                     <span className="text-gray-700">
-                      B-102, Rajmoti-1, Chharwada Road, Vapi, <br></br>Dist- Valsad,
-                      Gujarat - 396191
+                      B-102, Rajmoti-1, Chharwada Road, Vapi, <br></br>Dist-
+                      Valsad, Gujarat - 396191
                     </span>
                   </div>
                 </div>
@@ -128,8 +128,6 @@ const Contact = () => {
               </div>
             </motion.div>
           </div>
-
-          {/* Divider and Copyright */}
         </div>
       </motion.section>
     </div>

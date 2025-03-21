@@ -1,44 +1,28 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { motion } from "framer-motion";
 
 const WhatsAppButton = () => {
-  const whatsappNumber = "+91 9974285868";
+  // Format phone number properly - remove any spaces, keep only numbers and plus sign
+  const whatsappNumber = "+919974285868";
   const message = "Hello, I would like to inquire about your products.";
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    message
-  )}`;
 
-  const textVariants = {
-    initial: { x: 50, opacity: 0 },
-    hover: { x: 0, opacity: 1 },
-  };
+  // Create the WhatsApp URL correctly
+  const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber.replace(
+    /\s+/g,
+    ""
+  )}&text=${encodeURIComponent(message)}`;
 
+  // WhatsApp's official brand color: #25D366
   return (
-    <motion.div
-      className="fixed bottom-6 right-6 flex items-center"
-      initial="initial"
-      whileHover="hover"
-      animate="initial"
+    <a
+      href={whatsappLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-6 right-6 flex items-center justify-center bg-[#25D366] text-white p-3 rounded-full shadow-md hover:opacity-90 transition-all duration-300 z-50"
+      aria-label="Chat on WhatsApp"
     >
-      <motion.div
-        variants={textVariants}
-        transition={{ duration: 0.3 }}
-        className="mr-3 bg-white text-black px-4 py-2 rounded-full shadow-md"
-      >
-        Connect us
-      </motion.div>
-      <motion.a
-        href={whatsappLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="bg-green-500 p-4 rounded-full shadow-xl"
-      >
-        <FaWhatsapp size={24} color="#25D366" />
-      </motion.a>
-    </motion.div>
+      <FaWhatsapp className="text-2xl" />
+    </a>
   );
 };
 

@@ -76,7 +76,7 @@ const Navbar = () => {
         { path: "/products", label: "Agricultural Solutions" },
         { path: "/products", label: "Intermediates" },
         { path: "/products", label: "Pesticides" },
-        { path: "/products", label: "Services" },
+        { path: "/products", label: "Services", isBold: true },
       ],
     },
     { path: "/inquiry", label: "Inquiry" },
@@ -214,6 +214,7 @@ const Navbar = () => {
                               to={subItem.path}
                               className={({ isActive }) => `
                                 block px-4 py-3 transition-colors duration-200
+                                ${subItem.isBold ? "font-bold" : ""}
                                 ${
                                   isActive
                                     ? scrolled
@@ -349,6 +350,7 @@ const Navbar = () => {
                                   }}
                                   className={({ isActive }) => `
                                     block py-3 px-4 text-lg transition-colors duration-200 rounded-md
+                                    ${subItem.isBold ? "font-bold" : ""}
                                     ${
                                       isActive
                                         ? "bg-blue-800 text-white"

@@ -139,7 +139,7 @@ const Hero = () => {
           onClick={handleScrollToProducts}
           className="mt-8 px-8 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition duration-300"
         >
-          Discover Our Products
+          Discover our products & Services
         </button>
       </div>
     </div>

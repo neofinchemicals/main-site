@@ -97,7 +97,15 @@ const Footer = () => {
                   to="/products"
                   className="text-blue-100 hover:text-green-400 transition-colors duration-300 flex items-center"
                 >
-                  <span className="mr-2">›</span> Products & Services
+                  <span className="mr-2">›</span> Products
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/products"
+                  className="text-blue-100 hover:text-green-400 transition-colors duration-300 flex items-center"
+                >
+                  <span className="mr-2">›</span> Services
                 </Link>
               </li>
               <li>
@@ -168,6 +176,8 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
+          
 
           {/* Contact Info */}
           <div>

@@ -131,7 +131,7 @@ const ProductCategories = () => {
                   </p>
                   <div className="flex space-x-3">
                     <Link
-                      to={product.path}
+                      to="/products"
                       className="flex-1 py-2 px-4 text-center bg-blue-900 text-white font-medium rounded-md hover:bg-blue-800 transition-colors duration-300"
                     >
                       Learn More

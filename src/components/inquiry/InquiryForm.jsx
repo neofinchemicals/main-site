@@ -96,27 +96,27 @@ const InquiryForm = () => {
       <div className="grid md:grid-cols-2 gap-6">
         <motion.div variants={inputVariants} whileFocus="focus">
           <label className="block text-gray-700 font-semibold mb-1 text-sm">
-            Name <span className="text-red-500">*</span>
+            Name
           </label>
           <input
             type="text"
             name="from_name"
             value={formData.from_name}
             onChange={handleChange}
-            required
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
           />
         </motion.div>
 
         <motion.div variants={inputVariants} whileFocus="focus">
           <label className="block text-gray-700 font-semibold mb-1 text-sm">
-            Company
+            Company Name<span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             name="company_name"
             value={formData.company_name}
             onChange={handleChange}
+            required
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
           />
         </motion.div>
@@ -179,7 +179,7 @@ const InquiryForm = () => {
                 {prod.name} (CAS: {prod.casNo})
               </option>
             ))}
-            <option value="none">None</option>
+            <option value="none">Other Products</option>
           </select>
         </motion.div>
       </div>

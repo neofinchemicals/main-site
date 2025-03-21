@@ -1,20 +1,32 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaFlask, FaLeaf, FaCubes } from "react-icons/fa";
+import { FaFlask, FaLeaf, FaCubes, FaLink } from "react-icons/fa";
 import profileImg from "../../assets/images/company-profile.jpg";
+import { useNavigate } from "react-router-dom";
 
 const CompanyProfile = () => {
+  const navigate = useNavigate();
+
+  const handleProductsClick = () => {
+    navigate("/products");
+  };
+
+  const handleContactClick = () => {
+    navigate("/contact");
+  };
+
   const features = [
     {
       icon: <FaFlask />,
       title: "Quality Products",
       description:
-        "ISO-certified chemicals meeting the highest industry standards",
+        "Products Meeting the highest quality standards of the Industry",
     },
     {
-      icon: <FaLeaf />,
-      title: "Sustainable Approach",
-      description: "Eco-friendly processes and green chemistry principles",
+      icon: <FaLink />,
+      title: "Supply chain",
+      description:
+        "Offering Solutions to reduce the need of high inventory there by optimizing Cost efficiency",
     },
     {
       icon: <FaCubes />,
@@ -81,9 +93,6 @@ const CompanyProfile = () => {
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-transparent" />
-              <div className="absolute bottom-6 left-6 bg-blue-900/80 backdrop-blur-sm text-white py-2 px-4 rounded-full text-sm">
-                Established in 1996
-              </div>
             </motion.div>
 
             {/* Text Side */}
@@ -98,26 +107,29 @@ const CompanyProfile = () => {
                 Pioneering Chemical Excellence
               </h3>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Neofin Chemicals specializes in Chemicals, Fine Chemicals,
-                Active Pharmaceutical Ingredients (API), Drug Intermediates,
-                Pharmaceuticals, Bulk Drug Formulations, Petro Chemicals,
-                Solvents, and other chemical products from India and abroad,
-                ensuring that customer requirements are fully met.
+                Neofin Chemicals , specializes in Chemicals, Fine chemicals,
+                Active Pharmaceuticals ingredients (API) , Drug intermediates,
+                Pharmaceuticals, Bulk Drug Formulations, Petro chemicals,
+                Solvents, and any other chemicals & Products from India & Other
+                countries to full fill the requirement of the customers.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
-                We manufacture products using facilities of our exclusive
-                manufacturer partners with state-of-the-art capabilities across
-                Gujarat, Maharashtra, Telangana, and Hyderabad.
+                Neofin chemicals manufactures products using the facilities of
+                our exclusive manufacturer partner having high end capabilities
+                & capacities in Across india and Global
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Through our extensive network of manufacturers, we bridge the
-                gap between suppliers and users, optimizing supply chains and
-                manufacturing capabilities.
+                Using Our extensive network of manufacturers of chemicals, Fine
+                chemicals , Active Pharmaceuticals ingredients (API) , in India
+                and Abroad, We help to bridge the gap between the supplier &
+                user thereby optimizing the supply chain and manufacturing
+                capability of The Supplier & The User.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Additionally, we provide verification services by visiting
-                plants and factories, building trust between buyers and sellers
-                for sustainable business growth.
+                We also provide services to Represent The buyer & The Seller to
+                verify the genuineness by visiting their plants & factories ,
+                business places and thereby increasing the mutual trust of both
+                the parties to grow their Business.
               </p>
 
               <div className="flex space-x-6 pt-4 border-t border-gray-200">
@@ -125,6 +137,7 @@ const CompanyProfile = () => {
                   className="px-6 py-3 bg-blue-900 hover:bg-blue-800 text-white rounded-lg shadow transition duration-300"
                   whileHover={{ y: -3 }}
                   transition={{ type: "spring", stiffness: 400 }}
+                  onClick={handleProductsClick}
                 >
                   Our Products
                 </motion.button>
@@ -132,6 +145,7 @@ const CompanyProfile = () => {
                   className="px-6 py-3 border-2 border-blue-900 text-blue-900 hover:bg-blue-50 rounded-lg shadow transition duration-300"
                   whileHover={{ y: -3 }}
                   transition={{ type: "spring", stiffness: 400 }}
+                  onClick={handleContactClick}
                 >
                   Contact Us
                 </motion.button>

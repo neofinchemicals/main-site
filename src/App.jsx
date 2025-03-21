@@ -10,6 +10,7 @@ import Products from "./pages/Products";
 import Inquiry from "./pages/Inquiry";
 
 const App = () => {
+  
   return (
     <>
       <Navbar />

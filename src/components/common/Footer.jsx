@@ -36,7 +36,7 @@ const Footer = () => {
             </div>
             <p className="text-blue-100 text-sm mb-4">
               Innovative chemical solutions for a sustainable future, delivering
-              excellence since 1996.
+              excellence.
             </p>
             <div className="flex space-x-4 mb-6">
               <motion.a
@@ -97,7 +97,7 @@ const Footer = () => {
                   to="/products"
                   className="text-blue-100 hover:text-green-400 transition-colors duration-300 flex items-center"
                 >
-                  <span className="mr-2">›</span> Products
+                  <span className="mr-2">›</span> Products & Services
                 </Link>
               </li>
               <li>
@@ -218,13 +218,13 @@ const Footer = () => {
             </p>
             <div className="text-sm text-blue-200">
               <Link
-                to="/privacy-policy"
+                to="#"
                 className="hover:text-green-400 transition-colors duration-300 mr-4"
               >
                 Privacy Policy
               </Link>
               <Link
-                to="/terms-of-service"
+                to="#"
                 className="hover:text-green-400 transition-colors duration-300"
               >
                 Terms of Service

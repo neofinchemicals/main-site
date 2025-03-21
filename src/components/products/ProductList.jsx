@@ -14,7 +14,7 @@ const ProductList = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Our Product Categories
+          Our Products
         </motion.h2>
         <motion.div
           className="w-20 h-1 bg-green-500 mx-auto mb-8"

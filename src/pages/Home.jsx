@@ -4,6 +4,7 @@ import CompanyProfile from "../components/home/CompanyProfile";
 import MissionVision from "../components/home/MissionVision";
 import ProductCategories from "../components/home/ProductCategories";
 import WhatsAppButton from "../components/common/WhatsAppButton";
+import OurServices from "../components/home/OurServices";
 
 const Home = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const Home = () => {
         <CompanyProfile />
         <MissionVision />
         <ProductCategories />
+        <OurServices />
       </main>
       <WhatsAppButton />
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,15 +8,25 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [productsDropdown, setProductsDropdown] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState(null);
+  const menuTimeoutRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const triggerRef = useRef(null);
 
-  // Change navbar background on scroll with smooth transition
+  // Clear any existing timeouts
+  const clearMenuTimeout = () => {
+    if (menuTimeoutRef.current) {
+      clearTimeout(menuTimeoutRef.current);
+      menuTimeoutRef.current = null;
+    }
+  };
+
+  // Handle scroll effects
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const triggerHeight = 50;
 
-      // Calculate scroll progress for smooth transition (0 to 1)
       if (scrollY <= triggerHeight) {
         setScrollProgress(scrollY / triggerHeight);
         setScrolled(false);
@@ -30,29 +40,62 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle click outside dropdown to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        hoveredMenu &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        triggerRef.current &&
+        !triggerRef.current.contains(event.target)
+      ) {
+        setHoveredMenu(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [hoveredMenu]);
+
+  // Clean up timeouts on unmount
+  useEffect(() => {
+    return () => clearMenuTimeout();
+  }, []);
+
   const navLinks = [
     { path: "/", label: "Home" },
     {
       path: "/products",
-      label: "Products",
+      label: "Products & Services",
+      id: "products",
       dropdown: true,
       subItems: [
         { path: "/products", label: "Fine Chemicals" },
-        {
-          path: "/products",
-          label: "Pharmaceutical Ingredients",
-        },
-        {
-          path: "/products",
-          label: "Agricultural Solutions",
-        },
+        { path: "/products", label: "Pharmaceutical Ingredients" },
+        { path: "/products", label: "Agricultural Solutions" },
         { path: "/products", label: "Intermediates" },
         { path: "/products", label: "Pesticides" },
+        { path: "/products", label: "Services" },
       ],
     },
     { path: "/inquiry", label: "Inquiry" },
     { path: "/contact", label: "Contact" },
   ];
+
+  // Handler for menu item mouse enter
+  const handleMenuMouseEnter = (menuId) => {
+    clearMenuTimeout();
+    setHoveredMenu(menuId);
+  };
+
+  // Handler for menu item mouse leave with delay
+  const handleMenuMouseLeave = () => {
+    clearMenuTimeout();
+    menuTimeoutRef.current = setTimeout(() => {
+      setHoveredMenu(null);
+    }, 300); // Shorter delay for more responsive feel while still preventing accidental closure
+  };
 
   // Dynamic styles based on scroll position
   const navbarStyle = {
@@ -71,6 +114,34 @@ const Navbar = () => {
     primary: scrolled ? "text-blue-900" : "text-white",
     hover: scrolled ? "hover:bg-blue-50" : "hover:bg-white/10",
     active: scrolled ? "bg-blue-100 text-blue-900" : "bg-white/20 text-white",
+  };
+
+  // Animation variants for dropdown menu
+  const dropdownVariants = {
+    hidden: {
+      opacity: 0,
+      y: -5,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -5,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
   };
 
   return (
@@ -99,25 +170,43 @@ const Navbar = () => {
                 {link.dropdown ? (
                   <div className="relative">
                     <button
-                      onMouseEnter={() => setProductsDropdown(true)}
+                      ref={triggerRef}
+                      onMouseEnter={() => handleMenuMouseEnter(link.id)}
+                      onMouseLeave={handleMenuMouseLeave}
+                      onClick={() =>
+                        setHoveredMenu(hoveredMenu === link.id ? null : link.id)
+                      }
                       className={`px-4 py-2 rounded-md flex items-center ${textColor.primary} ${textColor.hover} font-medium transition duration-300`}
+                      aria-expanded={hoveredMenu === link.id}
+                      aria-haspopup="true"
                     >
                       {link.label}
-                      <FaChevronDown className="ml-1 text-xs" />
+                      <FaChevronDown
+                        className={`ml-1 text-xs transition-transform duration-300 ${
+                          hoveredMenu === link.id ? "rotate-180" : ""
+                        }`}
+                      />
                     </button>
 
                     {/* Dropdown Menu */}
                     <AnimatePresence>
-                      {productsDropdown && (
+                      {hoveredMenu === link.id && (
                         <motion.div
-                          initial={{ opacity: 0, y: -5 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -5 }}
-                          transition={{ duration: 0.2 }}
-                          onMouseLeave={() => setProductsDropdown(false)}
+                          ref={dropdownRef}
+                          variants={dropdownVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                          onMouseEnter={() => handleMenuMouseEnter(link.id)}
+                          onMouseLeave={handleMenuMouseLeave}
                           className={`absolute top-full left-0 w-60 ${
                             scrolled ? "bg-white" : "bg-blue-900"
                           } shadow-lg rounded-md overflow-hidden z-50 mt-1`}
+                          style={{
+                            transformOrigin: "top center",
+                            boxShadow:
+                              "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                          }}
                         >
                           {link.subItems.map((subItem, subIdx) => (
                             <NavLink
@@ -135,6 +224,7 @@ const Navbar = () => {
                                     : "text-white hover:bg-blue-800"
                                 }
                               `}
+                              onClick={() => setHoveredMenu(null)}
                             >
                               {subItem.label}
                             </NavLink>
@@ -179,6 +269,7 @@ const Navbar = () => {
         <button
           onClick={() => setIsOpen(true)}
           className={`p-2 rounded-md transition-colors duration-300 ${textColor.primary} ${textColor.hover}`}
+          aria-label="Open menu"
         >
           <FaBars className="text-xl" />
         </button>
@@ -211,6 +302,7 @@ const Navbar = () => {
                 <button
                   onClick={() => setIsOpen(false)}
                   className="p-2 text-white hover:bg-white/10 rounded-md transition-colors duration-300"
+                  aria-label="Close menu"
                 >
                   <FaTimes className="text-xl" />
                 </button>
@@ -222,19 +314,24 @@ const Navbar = () => {
                     {link.dropdown ? (
                       <>
                         <button
-                          onClick={() => setProductsDropdown(!productsDropdown)}
+                          onClick={() =>
+                            setHoveredMenu(
+                              hoveredMenu === link.id ? null : link.id
+                            )
+                          }
                           className="w-full flex items-center justify-between py-3 px-4 text-white hover:bg-blue-800 rounded-md transition duration-200"
+                          aria-expanded={hoveredMenu === link.id}
                         >
                           <span className="text-lg">{link.label}</span>
                           <FaChevronDown
                             className={`transition-transform duration-300 ${
-                              productsDropdown ? "rotate-180" : ""
+                              hoveredMenu === link.id ? "rotate-180" : ""
                             }`}
                           />
                         </button>
 
                         <AnimatePresence>
-                          {productsDropdown && (
+                          {hoveredMenu === link.id && (
                             <motion.div
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: "auto", opacity: 1 }}
@@ -246,7 +343,10 @@ const Navbar = () => {
                                 <NavLink
                                   key={subIdx}
                                   to={subItem.path}
-                                  onClick={() => setIsOpen(false)}
+                                  onClick={() => {
+                                    setHoveredMenu(null);
+                                    setIsOpen(false);
+                                  }}
                                   className={({ isActive }) => `
                                     block py-3 px-4 text-lg transition-colors duration-200 rounded-md
                                     ${
